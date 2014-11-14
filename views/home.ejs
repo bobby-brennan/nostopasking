@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="nostop/res/bootswatch.css">
+    <title>
+      No, Stop Asking: A study of Betteridge's law of headlines
+    </title>
+  <body>
+    <div class="row">
+      <h1>No, Stop Asking.</h1>
+
+      <h3>A study of <a href="http://en.wikipedia.org/wiki/Betteridge's_law_of_headlines">Betteridge's Law</a></h2>
+    </div>
+    <% for (var i = 0; i < articles.length; ++i) { %>
+      <h2><a href="<%= articles[i].url %>"><%= articles[i].title %></a></h2>
+      via <a href="<%= articles[i].sourceUrl %>"><%= articles[i].sourceName + ' ' + articles[i].subtopic %></a>
+      <br>
+    <% } %>
+  </body>
+</html>
