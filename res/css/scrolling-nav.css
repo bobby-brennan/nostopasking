@@ -31,30 +31,66 @@ html {
 The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children 
 of those sections to manage the look and feel of the site. */
 
+.underline {
+  text-decoration: underline;
+}
+
+.agreement {
+  height: 30px;
+}
+
 .intro-section {
     height: 100%;
+    width: 100%;
+    padding: 4px;
     padding-top: 150px;
     text-align: center;
     background: #fff;
+    min-height: 650px;
 }
 
-.about-section {
+.article-section-even {
     height: 100%;
-    padding-top: 150px;
+    width: 100%;
+    padding: 4px;
+    padding-top: 60px;
     text-align: center;
     background: #eee;
+    min-height: 650px;
 }
 
-.services-section {
+.article-section-odd {
     height: 100%;
-    padding-top: 150px;
+    width: 100%;
+    padding: 4px;
+    padding-top: 60px;
     text-align: center;
     background: #fff;
+    min-height: 650px;
 }
 
-.contact-section {
-    height: 100%;
-    padding-top: 150px;
-    text-align: center;
-    background: #eee;
+.btn-yn {
+  width: 100%;
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+.barYes {
+  fill: #449d44; 
+}
+
+.barNo {
+  fill: #d9534f;
+}
+
+.description {
+  padding-top: 20px;
+}
+
+svg {
+  margin-top: 50px;
+  width: 100%;
+  height: 100%;
 }

@@ -30,7 +30,7 @@ exports.addQuestionArticle = function(article, onDone) {
 var QUERY_GET_ARTICLES = "SELECT qArticles.url, qArticles.title, sourceFeeds.url as sourceUrl," +
     " sourceFeeds.name as sourceName, sourceFeeds.subtopic as subtopic" +
     " FROM qArticles INNER JOIN sourceFeeds ON qArticles.source=sourceFeeds.url" +
-    " ORDER BY crawlTime DESC limit 200";
+    " ORDER BY date DESC limit 100";
 exports.getArticles = function(onDone) {
   DB.query(QUERY_GET_ARTICLES, [], function(err, rows) {
     if (err) {
@@ -38,5 +38,21 @@ exports.getArticles = function(onDone) {
       throw err;
     }
     onDone(rows);
+  });
+}
+
+var QUERY_ADD_RESPONSE = "UPDATE qArticles set yes = yes + ?, no = no + ? WHERE url=?"
+exports.addResponse = function(response, onDone) {
+  DB.query(QUERY_ADD_RESPONSE, [(response.isYes ? 1 : 0), (response.isYes ? 0 : 1), response.url], function(err) {
+    if (err) throw err;
+    onDone();
+  });
+}
+
+var QUERY_GET_STATS = "SELECT yes, no FROM qArticles WHERE url=?";
+exports.getStats = function(url, onDone) {
+  DB.query(QUERY_GET_STATS, [url], function(err, rows) {
+    if (err) throw err;
+    onDone(rows[0]);
   });
 }
