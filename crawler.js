@@ -7,12 +7,16 @@ var readFeeds = function(feeds) {
 
   var articleSetHandler = function(source) {
     return function (err, articles) {
-      for (var i = 0; i < articles.length; ++i) {
-        if (isQuestionArticle(articles[i])) {
-          console.log('  !!question:' + articles[i].title);
-          console.log('  source:' + source);
-          articles[i].source = source;
-          questionArticles.push(articles[i]);
+      if (err) {
+        console.log(err);
+      } else {
+        for (var i = 0; i < articles.length; ++i) {
+          if (isQuestionArticle(articles[i])) {
+            console.log('  !!question:' + articles[i].title);
+            console.log('  source:' + source);
+            articles[i].source = source;
+            questionArticles.push(articles[i]);
+          }
         }
       }
       if (++feedsDone === feeds.length) {
