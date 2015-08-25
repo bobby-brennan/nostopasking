@@ -47,8 +47,8 @@ var getRssForArticles = function(articles) {
   var feed = new RSS({
         title: 'No. Stop Asking.',
         description: 'A compilation of headlines in the form of a question',
-        feed_url: 'http://www.nostopasking.com/nostop/rss',
-        site_url: 'http://www.nostopasking.com/nostop',
+        feed_url: 'http://www.nostopasking.com:3020/rss',
+        site_url: 'http://www.nostopasking.com:3020',
         language: 'en',
         ttl: '60'
   });
